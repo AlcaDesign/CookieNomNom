@@ -607,7 +607,12 @@
 			client.connect();
 
 			client.on("chat", function (channel, userstate, message, self) {
-				if( ( userstate.mod || ( "#" + userstate.username == channel ) ) && message == "!cookies" ) {
+				if( ( userstate.mod || ( "#" + userstate.username == channel ) ) && message.indexOf("!cookies")!=-1 ) {
+					var cookie_amt = message.split(" ", 2);
+					cookie_amt = parseInt(cookie_amt[1], 10);
+					if (cookie_amt <= 200 && cookie_amt > 0) {
+						numMunchies = cookie_amt;
+					}
 					for( var i = 0; i < numMunchies; i++ ) {
 						var cookieIndex = munchies.length;
 						munchies.push( munchieGroup.create( 300 * Math.random() + 300, 200 * Math.random() + 300, "wizball" ) );

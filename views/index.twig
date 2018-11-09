@@ -614,7 +614,7 @@
 				var cookie_amt = numMunchies;
 				try{
 				  cookie_amt = parseInt(message.replace("!cookies ", ""));
-					if ((isNaN(cookie_amt)) || (cookie_amt > 200 || cookie_amt <= 0)) {
+					if ((isNaN(cookie_amt)) || (cookie_amt > maxMunchies || cookie_amt <= 0)) {
 					  cookie_amt=numMunchies;
 					}
 				}

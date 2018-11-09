@@ -53,6 +53,8 @@
 		var munchieGroup;
 		var munchies = [];
 		var numMunchies = 30;
+		var maxMunchies = 600; // max number of cookies possible--to prevent users from lagging/crashing the app
+		var curMunchies = 0; //initialize number of cookies to 0
 		var pikaState = "idle"; // "idle", "left", "right"
 		var previousRayVals = -1;
 		var refreshTimer = null;
@@ -178,13 +180,13 @@
 				straight: scorePreSim[ "straight" ] * -1 + rayPika( munchies[ index ], monsters, 0, 0.15 ).reduce( (a, b) => a + b ),
 				right45: scorePreSim[ "right45" ] * -1 + rayPika( munchies[ index ], monsters, PI / 2, 0.15 ).reduce( (a, b) => a + b ),
 			}
-			console.log( scores );
+			//console.log( scores );
 			var maxScore = Object.keys( scores ).reduce( (a, b) => ( scores[ a ] > scores[ b ] ? a : b ) );
-			console.log( maxScore );
+			//console.log( maxScore );
 			if( Object.keys( balls ).length > 10 ) {
 				// console.log( rays.map( x => x / 1000 ) );
 				var normalizedScores = Object.keys( scores ).map( x => scores[ x ] / 10000 + 0.5 );
-				console.log( normalizedScores );
+				//console.log( normalizedScores );
 				// trainData.push( {
 				// 	input: normalizedScores,//rays.map( x => x / 1000 ),
 				// 	output: { [maxScore]: 1 }
@@ -532,6 +534,7 @@
 						if( munchies[ i ] == pika ) {
 							pika.destroy();
 							munchies.splice( i, 1 );
+							curMunchies--;
 							break;
 						}
 					}
@@ -611,11 +614,18 @@
 				var cookie_amt = numMunchies;
 				try{
 				  cookie_amt = parseInt(message.replace("!cookies ", ""));
-					if ((isNaN(cookie_amt)) || (cookie_amt > 200 || cookie_amt <= 0)) {
+					if ((isNaN(cookie_amt)) || (cookie_amt > maxMunchies || cookie_amt <= 0)) {
 					  cookie_amt=numMunchies;
 					}
 				}
 				catch( ex ) {}
+					if (cookie_amt+curMunchies>maxMunchies) {
+						cookie_amt=maxMunchies-curMunchies;
+						curMunchies=maxMunchies;
+					}
+					else {
+						curMunchies+=cookie_amt;
+					}
 					for( var i = 0; i < cookie_amt; i++ ) {
 						var cookieIndex = munchies.length;
 						munchies.push( munchieGroup.create( 300 * Math.random() + 300, 200 * Math.random() + 300, "wizball" ) );

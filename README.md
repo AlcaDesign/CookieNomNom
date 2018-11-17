@@ -9,7 +9,12 @@ We built this Twitch-integrated Self-Avoiding A.I. live on Twitch!
 > https://twitter.com/instafluffTV
 
 ## Credits ##
-Thank you too all the participants of this project!
+
+Special thank you for the code contributions to this project from the following people!
+
+**Patchshifter**
+
+Thank you to all the participants of this project!
 
 **Instafluff, BountyHunterLani, Poolpourri, pipskidoodle, Instafriend, Docpinecone, iAmNotFromHere, RokvirStormshield, SoG_Cuicui, cottonsmiles, reverandsaul, funkysquid, LambenceeAaron, samchitto, Infanate_Reapage, madridr4, SirBillPaxton, Chlapicek99, nightsilas, GossamerGames, donaldwm, AntiViGames, fydo, Amarogine, NicoliCannoli, koralina_211, InSanityParty, Pearcington, MacabreMan2, KitAnnLIVE, jellydance, yaustar, ItsNaomiArt, mallesbixie, ShadowOn_Twitch, Deitypotato, sparky_pugwash, Neo_TA, ravavyr, Kisa__d1_1b, TheHungerService, Replemish, vanilawowwww, MerlinLeWizard, That_MS_Gamer, nallaj, pprofl, Leemyy, DorkzillaI, Guardiadelaluna, FuriousFur, DeitDZN, Pixelgourmet, Shaosan, Gokou00, losthewar, DrJavaSaurus, breachy, SuperChihuahua, Ivena, ItMeGlaze, ZeroSquared, codeheir, yatko, wietlol, foxotic**
 
